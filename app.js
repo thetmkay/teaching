@@ -17,6 +17,7 @@
   app.set('port', process.env.PORT || 3000);
   app.engine('html', cons.nunjucks);
   app.set('view engine', 'html');
+  app.set('views', path.join(__dirname, 'views'));//need for subapping/mounting
   app.use(express.static(path.join(__dirname, 'public')));
   // app.use(app.router);
 
