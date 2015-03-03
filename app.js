@@ -21,10 +21,18 @@
   app.use(express.static(path.join(__dirname, 'public')));
   // app.use(app.router);
 
-  app.get('/:name', function(req,res) {
-    res.render(req.params.name);
+  app.get('/favicon.ico', function(req, res) {
+    res.sendStatus(401);
+  })
+
+  app.get('/html/:name', function(req,res) {
+    res.render(path.join('html',req.params.name));
   })
 
   app.get('/', function(req,res) {
     res.render('index');
   });
+
+ app.get('*', function(req,res) {
+  res.redirect('/');
+ })
