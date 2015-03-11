@@ -1,0 +1,97 @@
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic|Inconsolata:400,700|Oxygen:400,700,300' rel='stylesheet' type='text/css'>
+    <title> CSS | Border </title>
+<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	.style-input {
+		display: inline-block;
+		width: 40%;
+	}
+
+	.style-options {
+		list-style: none;
+		padding: 0;
+	}
+
+	.style-output {
+		display: inline-block;
+		width: 60%;
+	}
+
+	.style-output[data-border=solid]  .box{
+		border: solid 1px blue;
+	}
+	.style-output[data-border=thick]  .box{
+		border: solid 4px blue;
+	}
+	.style-output[data-border=dotted]  .box{
+		border: dotted 2px blue;
+	}
+	.style-output[data-border=dashed]  .box{
+		border: dashed 2px blue;
+	}
+	.style-output[data-border=groove]  .box{
+		border: groove 4px blue;
+	}
+	.style-output[data-border=ridge]  .box{
+		border: ridge 4px blue;
+	}
+	.style-output[data-border=inset]  .box{
+		border: inset;
+	}
+	.style-output[data-border=radius]  .box{
+		border: solid 1px blue;
+		border-radius: 10px;
+	}
+
+	.style-mod {
+		width: 100%;
+		padding: 5px;
+		box-sizing: border-box;
+		border: solid 3px #aaa;
+	}
+
+	.style-option {
+		font-family: Inconsolata, monospace;
+		padding-left: 5px;
+	}
+	.box {
+		width: 50%;
+		height: 40px;
+		background-color: #f9f9f9;
+	}
+</style>
+</head>
+<body>
+	<div class="style-mod">
+	<div class="style-output" data-border="solid" id="style-box">
+		<div class="box"></div>
+	</div>
+	<div class="style-input">
+	<ul class="style-options">
+	<li><input type="radio" name="border-type" value="solid" checked><span class="style-option">border: solid 1px blue;</span></li>
+	<li><input type="radio" name="border-type" value="thick"><span class="style-option">border: solid 4px blue;</span></li>
+	<li><input type="radio" name="border-type" value="dotted"><span class="style-option">border: dotted 2px blue;</span></li>
+	<li><input type="radio" name="border-type" value="dashed"><span class="style-option">border: dashed 1px blue;</span></li>
+	<li><input type="radio" name="border-type" value="groove"><span class="style-option">border: groove 4px blue;</span></li>
+	<li><input type="radio" name="border-type" value="ridge"><span class="style-option">border: ridge 4px blue;</span></li>
+	<li><input type="radio" name="border-type" value="inset"><span class="style-option">border: inset;</span></li>
+	<li><input type="radio" name="border-type" value="radius"><span class="style-option">border-radius: 10px; border: solid 1px black;</span></li>
+	</ul>
+	</div>
+	</div>
+	<script type="text/javascript">
+	var radios = document.querySelectorAll("input[name=border-type]");
+	console.log(radios);
+	for(var i = 0; i < radios.length; i++) {
+		radios[i].addEventListener('change', function() {
+			document.getElementById('style-box').setAttribute('data-border', this.value);
+		});
+	}
+	</script>
+</body>
+</html>

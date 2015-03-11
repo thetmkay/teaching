@@ -29,6 +29,10 @@
     res.render(path.join('html',req.params.name));
   })
 
+  app.get('/css/:name', function(req,res) {
+    res.render(path.join('css',req.params.name));
+  })
+
   app.get('/', function(req,res) {
     res.render('index');
   });

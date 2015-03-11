@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic|Inconsolata:400,700|Oxygen:400,700,300' rel='stylesheet' type='text/css'>
+    <title> CSS | Sizing </title>
+    <style>
+    body,
+    html {
+        width: 100%;
+        height: 1500px;
+        background-color: #f9f9f9;
+    }
+    .outer-mod {
+        width: 300px;
+        height: 200px;
+        background-color: green;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    .main-box {
+        width: 260px;
+        height: 160px;
+        border: solid 1px black;
+        background-color: orange;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .inner-mod {
+        width: 220px;
+        height: 120px;
+        background-color: white;
+        box-sizing: border-box;
+    }
+    .box-outer {
+        background-color: #E7D9FD;
+        display: inline-block;
+    }
+    .box {
+        background-color: #FF9400;
+        height: 100px;
+        width: 200px;
+    }
+    #output-box {
+        padding: 20px;
+        margin: 20px;
+    }
+    .box-inner {
+        background-color: #C6ECE2;
+        width: 100%;
+        height: 100%;
+    }
+    .style-input-line {
+        font-family: 'Inconsolata', monospace;
+    }
+    .style-input-slider {
+        margin-left: 20px;
+    }
+    .style-input {
+        margin: 40px;
+    }
+    .style-output {
+        margin: 40px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="style-mod">
+        <div class="style-output">
+            <div class="box-outer">
+                <div id="output-box" class="box">
+                    <div class="box-inner">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="style-input">
+            {% set styles = [ {key: "paddingTop", css: "padding-top"}, { key: "paddingLeft", css:"padding-left"}, {key: "paddingBottom", css: "padding-bottom"}, {key: "paddingRight", css: "padding-right"}, {key: "marginTop", css: "margin-top"}, { key: "marginLeft", css:"margin-left"}, {key: "marginBottom", css: "margin-bottom"}, {key: "marginRight", css: "margin-right"} ]%} {% for style in styles %}
+            <div class="style-input-row">
+                <span class="style-input-line">{{style.css}}: <span id="{{style.key}}" class="style-input-change">20</span>px</span>
+                <input for="{{style.key}}" class="style-input-slider" type="range" min="0" max="100" value="20">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script type="text/javascript">
+    var OUTPUT_BOX = 'output-box';
+    var sliders = document.querySelectorAll('.style-input-slider');
+
+    for (var i = 0; i < sliders.length; i++) {
+        sliders[i].addEventListener('change', function() {
+            var target_id = this.getAttribute('for');
+            document.getElementById(target_id).innerHTML = this.value;
+            document.getElementById(OUTPUT_BOX).style[target_id] = this.value + 'px';
+        })
+    }
+    </script>
+</body>
+
+</html>

@@ -5,6 +5,8 @@ html,body {
 	font-family: Oxygen, sans-serif;
 }
 
+
+
 * {
 	box-sizing: border-box;
 }
@@ -13,12 +15,49 @@ code {
 	font-family: Inconsolata, monospace;
 }
 
+.hdr {
+	border-bottom: solid 4px #f4f4f4;
+	position: fixed;
+	background-color: #fff;
+	z-index: 2;
+	width: 100%;
+	min-height: 50px;
+	padding: 10px 0;
+}
+
+.hdr-list {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 0 10px;
+	list-style: none;
+	text-align: center;
+}
+
+.hdr-link.email {
+	font-weight: normal;
+}
+
+.hdr-link {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.hdr-list-item {
+	display: inline;
+	padding: 0 10px;
+	line-height: 30px;
+}
+
 .section-mod {
 	max-width: 700px;
 	padding: 10px 20px;
 	margin: 0 auto;
 	background-color: #fff;
 	/*border: solid 1px #351C75;*/
+}
+
+.chapter-section.first {
+	padding-top: 50px;
 }
 
 .chapter-section {
@@ -31,6 +70,10 @@ code {
 	font-size: 36px;
 }
 
+.hdr-link.internet {
+	color: #741B47;
+}
+
 .internet.chapter-section {
 	background-color: #741B47;
 }
@@ -39,12 +82,29 @@ code {
 	color: #741B47;
 }
 
+
+.hdr-link.html {
+	color: #351C75;
+}
+
 .html .chapter-title {
 	color: #351C75;
 }
 
 .html.chapter-section {
 	background-color: #351C75;
+}
+
+.hdr-link.css {
+	color: #FF9400;
+}
+
+.css .chapter-title {
+	color: #FF9400;
+}
+
+.css.chapter-section {
+	background-color: #FF9400;
 }
 
 .chapter-subtitle {
