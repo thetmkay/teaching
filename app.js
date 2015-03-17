@@ -5,6 +5,7 @@
   var express = require('express'),
     http = require('http'),
     path = require('path'),
+    nunjucks = require('nunjucks'),
     cons = require('consolidate');
 
   var app = module.exports = express();
@@ -20,6 +21,9 @@
   app.set('views', path.join(__dirname, 'views'));//need for subapping/mounting
   app.use(express.static(path.join(__dirname, 'public')));
   // app.use(app.router);
+
+  var env = new nunjucks.Environment(new nunjucks.FileSystemLoader([app.get('views')]));
+  env.express(app);
 
   app.get('/favicon.ico', function(req, res) {
     res.sendStatus(401);
