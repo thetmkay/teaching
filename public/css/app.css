@@ -107,6 +107,18 @@ code {
 	background-color: #FF9400;
 }
 
+.hdr-link.bootstrap {
+	color: #0B5394;
+}
+
+.bootstrap.chapter-section {
+	background-color: #0B5394;
+}
+
+.bootstrap .chapter-title{
+	color: #0B5394;
+}
+
 .chapter-subtitle {
 	font-family: Oxygen;
 	font-weight: 300;

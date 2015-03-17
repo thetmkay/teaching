@@ -33,6 +33,10 @@
     res.render(path.join('css',req.params.name));
   })
 
+  app.get('/bootstrap/:name', function(req,res) {
+    res.render(path.join('bootstrap',req.params.name));
+  })
+
   app.get('/', function(req,res) {
     res.render('index');
   });

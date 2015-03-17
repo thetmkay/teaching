@@ -1,64 +1,100 @@
 <!doctype html>
 <html>
+
 <head>
     <title> CSS | Position </title>
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic|Inconsolata:400,700|Oxygen:400,700,300' rel='stylesheet' type='text/css'>
-<style>
-	body,html {
-		width: 100%;
-		height: 1500px;
-	}
-
-	h3 {
-		font-family: Oxygen, sans-serif;
-	}
-
-	.box {
-		background-color: orange;
-		color: white;
-		padding: 10px;
-		font-family: Oxygen, sans-serif;
-		width:100px;
-		height:50px;
-		margin: 5px;
-		bottom: 5px;
-		left: 150px;
-		font-weight: bold;
-	}
-
-	.absolute {
-		position: absolute;
-	}
-
-	.relative {
-		position: relative;
-	}
-
-	.fixed {
-		position: fixed;
-	}
-
-	.position-section {
-		display: block;
-		width: 100%;
-		margin: 1em;
-		background-color: #f9f9f9;
-		padding: 1em;
-		position: relative;
-
-		height: 150px;
-	}
-
-</style>
+    <style>
+    body,
+    html {
+        width: 100%;
+        height: 1500px;
+    }
+    h3 {
+        font-family: Oxygen, sans-serif;
+    }
+    .box {
+        background-color: orange;
+        color: white;
+        padding: 10px;
+        font-family: Oxygen, sans-serif;
+        width: 100px;
+        height: 50px;
+        margin: 5px;
+        bottom: 5px;
+        left: 150px;
+        font-weight: bold;
+    }
+    .box[data-position=absolute] {
+        position: absolute;
+    }
+    .box[data-position=relative] {
+        position: relative;
+    }
+    .box[data-position=fixed] {
+        position: fixed;
+    }
+    .style-output {
+        display: block;
+        width: 100%;
+        margin: 1em;
+        background-color: #f9f9f9;
+        padding: 1em;
+        position: relative;
+        height: 150px;
+    }
+    .style-option,.style-fixed {
+        font-family: Inconsolata, monospace;
+        padding-left: 5px;
+    }
+    .style-input ul {
+        list-style: none;
+    }
+    </style>
 </head>
+
 <body>
-<h3>Position - (Bottom 5px and Left 150px)</h3>
-<section class="position-section">
-<div class="absolute box">Absolute</div>
-</section>
-<section class="position-section">
-<div class="relative box">Relative</div>
-</section>
-<div class="fixed box">Fixed</div>
+    <div class="style-output">
+        <div id="style-box" data-position="relative" class="box">
+        </div>
+    </div>
+    <div class="style-input">
+        <ul>
+        	<li>
+                <span class="style-fixed">top: auto;</span>
+            </li>
+            <li>
+                <span class="style-fixed">left: 150px;</span>
+            </li>
+            <li>
+                <span class="style-fixed">bottom: 5px;</span>
+            </li>
+            <li>
+                <span class="style-fixed">right: auto;</span>
+            </li>
+            </ul>
+            <ul>
+            <li>
+                <input type="radio" name="position-type" value="relative" checked><span class="style-option">position: relative;</span>
+            </li>
+            <li>
+                <input type="radio" name="position-type" value="absolute"><span class="style-option">position: absolute;</span>
+            </li>
+            <li>
+                <input type="radio" name="position-type" value="fixed"><span class="style-option">position: fixed;</span>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    var radios = document.querySelectorAll("input[name=position-type]");
+    console.log(radios);
+    for (var i = 0; i < radios.length; i++) {
+        radios[i].addEventListener('change', function() {
+            document.getElementById('style-box').setAttribute('data-position', this.value);
+        });
+    }
+    </script>
+
 </body>
+
 </html>
