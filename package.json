@@ -1,6 +1,6 @@
 {
   "name": "gn-teaching",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "teaching web development",
   "main": "app.js",
   "scripts": {
